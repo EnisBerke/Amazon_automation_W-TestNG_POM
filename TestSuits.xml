@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Test" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+        <listener class-name="org.testng.reporters.XMLReporter"/>
+        <listener class-name="org.testng.reporters.TestHTMLReporter"/>
+    </listeners>
+    <test name="TestOnChrome">
+        <parameter name="baseURL" value="https://www.amazon.com.tr/"/>
+        <parameter name="browser" value="chrome"/>
+        <!-- <groups>
+            <run>
+                <include name="depend"/>
+            </run>
+        </groups> -->
+        <classes>
+            <class name="com.TestUnit.Test_Driver"/>
+        </classes>
+        <!-- <packages>
+            <package name="com.TestUnit">
+                <include name="com.TestUnit.Test_Driver"/>
+            </package>
+        </packages> "If u wanna use package instead of groups and run, use this block" -->
+    </test>
+    <test name="TestOnFirefox">
+        <parameter name="baseURL" value="https://www.amazon.com.tr/"/>
+        <parameter name="browser" value="firefox"/>
+        <!-- <groups>
+            <run>
+                <include name="depend"/>
+            </run>
+        </groups> -->
+        <classes>
+            <class name="com.TestUnit.Test_Driver"/>
+        </classes>
+        <!-- <packages>
+            <package name="com.TestUnit">
+                <include name="com.TestUnit.Test_Driver"/>
+            </package>
+        </packages> "If u wanna use package instead of groups and run, use this block" -->
+    </test>
+</suite>
